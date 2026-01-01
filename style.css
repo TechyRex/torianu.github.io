@@ -571,15 +571,23 @@ body {
 @media (max-width: 768px) {
     .header-content {
         height: 70px;
+        position: relative;
     }
 
     .logo {
         font-size: 1.25rem;
         letter-spacing: 0.2em;
+        /* Remove absolute positioning - let flexbox handle it */
+        position: static;
+        transform: none;
+        /* Allow it to take up space on the left */
+        flex: 1;
     }
 
     .header-icons {
         gap: 1rem;
+        /* Push icons to the right */
+        margin-left: auto;
     }
 
     .menu-btn span {
@@ -611,13 +619,6 @@ body {
     /* Hide Contact Us button on mobile */
     .contact-link {
         display: none !important;
-    }
-    
-    /* Center logo on mobile (since contact button is hidden) */
-    .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
     }
 }
 
@@ -658,6 +659,17 @@ body {
     .faq-question {
         font-size: 0.85rem;
     }
+    
+    /* Adjust logo size for very small screens */
+    .logo {
+        font-size: 1.1rem;
+        letter-spacing: 0.15em;
+    }
+    
+    /* Reduce icon spacing on very small screens */
+    .header-icons {
+        gap: 0.75rem;
+    }
 }
 
 /* Show Contact Us button on desktop (769px and above) */
@@ -670,6 +682,7 @@ body {
     .logo {
         position: static;
         transform: none;
+        flex: none;
     }
 }
 
