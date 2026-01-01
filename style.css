@@ -607,6 +607,18 @@ body {
     .title-section {
         margin-bottom: 4rem;
     }
+    
+    /* Hide Contact Us button on mobile */
+    .contact-link {
+        display: none !important;
+    }
+    
+    /* Center logo on mobile (since contact button is hidden) */
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media (max-width: 480px) {
@@ -645,6 +657,19 @@ body {
 
     .faq-question {
         font-size: 0.85rem;
+    }
+}
+
+/* Show Contact Us button on desktop (769px and above) */
+@media (min-width: 769px) {
+    .contact-link {
+        display: flex !important;
+    }
+    
+    /* Reset logo position for desktop */
+    .logo {
+        position: static;
+        transform: none;
     }
 }
 
@@ -846,31 +871,5 @@ body {
 
     .footer {
         padding: 3rem 0 1.5rem;
-    }
-}
-
-/* Hide Contact Us button on mobile, show only on desktop */
-@media (max-width: 768px) {
-    .contact-link {
-        display: none !important;
-    }
-    
-    /* Adjust header layout for mobile */
-    .header-content {
-        justify-content: space-between;
-    }
-    
-    /* Ensure logo is centered on mobile (with hidden contact button) */
-    .logo {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-/* Show Contact Us button on desktop */
-@media (min-width: 769px) {
-    .contact-link {
-        display: flex !important;
     }
 }
