@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TORÍ ÀÁNÚ - Payment & Custom Orders</title>
+    <title>TORÍ ÀÁNÚ - Book Consultation</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Payment Page Specific Styles */
-        .payment-hero {
+        .consultation-hero {
             background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
             color: white;
             padding: 80px 0 60px;
@@ -16,13 +16,13 @@
             margin-bottom: 60px;
         }
         
-        .payment-hero h1 {
+        .consultation-hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             letter-spacing: 2px;
         }
         
-        .payment-hero p {
+        .consultation-hero p {
             font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 30px;
@@ -30,7 +30,7 @@
             opacity: 0.9;
         }
         
-        .payment-container {
+        .consultation-container {
             max-width: 1200px;
             margin: 0 auto 80px;
             display: grid;
@@ -102,296 +102,319 @@
             font-size: 0.95rem;
         }
         
-        .payment-form-section {
+        .appointment-section {
             padding: 40px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             border: 1px solid #eaeaea;
+            text-align: center;
         }
         
-        .payment-form-title {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #1a1a1a;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .payment-form-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background-color: #D4AF37;
-        }
-        
-        .timeframe-selection {
-            margin-bottom: 40px;
-        }
-        
-        .timeframe-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .timeframe-options {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .timeframe-option {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            border: 2px solid #eaeaea;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .timeframe-option:hover {
-            border-color: #D4AF37;
-        }
-        
-        .timeframe-option.selected {
-            border-color: #D4AF37;
-            background-color: rgba(212, 175, 55, 0.05);
-        }
-        
-        .timeframe-radio {
-            width: 20px;
-            height: 20px;
-            margin-right: 15px;
-            border: 2px solid #ccc;
-            border-radius: 50%;
-            position: relative;
-            flex-shrink: 0;
-        }
-        
-        .timeframe-option.selected .timeframe-radio:after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            background-color: #D4AF37;
-            border-radius: 50%;
-        }
-        
-        .timeframe-details {
-            flex-grow: 1;
-        }
-        
-        .timeframe-name {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: #333;
-        }
-        
-        .timeframe-duration {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-        }
-        
-        .timeframe-price {
+        .appointment-icon {
+            font-size: 4rem;
             color: #D4AF37;
-            font-weight: 600;
-            font-size: 1.1rem;
+            margin-bottom: 25px;
         }
         
-        .payment-methods {
-            margin-bottom: 40px;
-        }
-        
-        .payment-methods-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .payment-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-        }
-        
-        .payment-option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px 15px;
-            border: 2px solid #eaeaea;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .payment-option:hover {
-            border-color: #D4AF37;
-        }
-        
-        .payment-option.selected {
-            border-color: #D4AF37;
-            background-color: rgba(212, 175, 55, 0.05);
-        }
-        
-        .payment-icon {
+        .appointment-title {
             font-size: 2rem;
-            margin-bottom: 10px;
-            color: #555;
+            margin-bottom: 20px;
+            color: #1a1a1a;
         }
         
-        .payment-option.selected .payment-icon {
+        .appointment-price {
+            font-size: 3.5rem;
             color: #D4AF37;
-        }
-        
-        .payment-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #333;
-        }
-        
-        .order-summary {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 8px;
+            font-weight: 700;
             margin-bottom: 30px;
         }
         
-        .order-summary-title {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: #333;
+        .appointment-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 35px;
         }
         
-        .order-details {
+        .appointment-features {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+        
+        .appointment-feature {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
         }
         
-        .order-row {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eaeaea;
-        }
-        
-        .order-label {
-            color: #666;
-        }
-        
-        .order-value {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .order-total {
-            display: flex;
-            justify-content: space-between;
-            padding-top: 15px;
-            margin-top: 10px;
-            border-top: 2px solid #333;
-        }
-        
-        .total-label {
-            font-size: 1.2rem;
-            color: #333;
-        }
-        
-        .total-value {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .appointment-feature i {
             color: #D4AF37;
+            margin-right: 15px;
+            font-size: 1.2rem;
         }
         
         .payment-btn {
             width: 100%;
-            padding: 18px;
+            padding: 22px;
             background-color: #1a1a1a;
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px;
         }
         
         .payment-btn:hover {
             background-color: #D4AF37;
             color: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .payment-btn i {
+            margin-right: 15px;
+        }
+        
+        .appointment-disclaimer {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            border-left: 4px solid #D4AF37;
+        }
+        
+        .disclaimer-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .disclaimer-title i {
+            color: #D4AF37;
             margin-right: 10px;
         }
         
-        .payment-disclaimer {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #fff8e1;
-            border-radius: 8px;
-            font-size: 0.9rem;
+        .disclaimer-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: #666;
-            line-height: 1.5;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+        }
+        
+        .step-number {
+            background-color: #D4AF37;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .social-media-section {
+            background-color: #f8f8f8;
+            padding: 40px 0;
+            border-top: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .social-media-wrapper {
+            text-align: center;
+        }
+        
+        .social-media-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .social-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            width: 80px;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-icon i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Platform-specific colors */
+        .tiktok-icon:hover i {
+            color: #000000;
+        }
+        
+        .instagram-icon:hover i {
+            color: #E4405F;
+        }
+        
+        .pinterest-icon:hover i {
+            color: #BD081C;
+        }
+        
+        .call-icon:hover i {
+            color: #34B7F1;
+        }
+        
+        .whatsapp-icon:hover i {
+            color: #25D366;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .social-media-icons {
+                gap: 20px;
+            }
+            
+            .social-icon {
+                width: 70px;
+            }
+            
+            .social-icon i {
+                font-size: 1.8rem;
+            }
+            
+            .social-icon-label {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .social-media-icons {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 60px;
+            }
+            
+            .social-icon i {
+                font-size: 1.5rem;
+            }
+            
+            .social-icon-label {
+                font-size: 0.7rem;
+            }
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .payment-container {
+            .consultation-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
             
-            .payment-hero h1 {
+            .consultation-hero h1 {
                 font-size: 2.8rem;
             }
         }
         
         @media (max-width: 768px) {
-            .payment-hero {
+            .consultation-hero {
                 padding: 60px 0 40px;
             }
             
-            .payment-hero h1 {
+            .consultation-hero h1 {
                 font-size: 2.2rem;
             }
             
-            .craftsmanship-section, .payment-form-section {
+            .craftsmanship-section, .appointment-section {
                 padding: 30px 20px;
             }
             
-            .payment-options {
-                grid-template-columns: 1fr;
+            .appointment-price {
+                font-size: 2.8rem;
             }
         }
         
         @media (max-width: 480px) {
-            .payment-hero h1 {
+            .consultation-hero h1 {
                 font-size: 1.8rem;
             }
             
-            .timeframe-option {
-                flex-direction: column;
-                align-items: flex-start;
+            .appointment-title {
+                font-size: 1.6rem;
             }
             
-            .timeframe-radio {
-                margin-bottom: 10px;
+            .appointment-price {
+                font-size: 2.2rem;
+            }
+            
+            .process-step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+                margin-right: 0;
             }
         }
     </style>
@@ -450,163 +473,112 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Hero Section -->
-        <section class="payment-hero">
+        <section class="consultation-hero">
             <div class="container">
-                <h1>CUSTOM ORDER PAYMENT</h1>
-                <p>Secure your bespoke creation with TORÍ ÀÁNÚ. Each piece is meticulously crafted to perfection, reflecting our commitment to exceptional craftsmanship and timeless elegance.</p>
+                <h1>BOOK YOUR CONSULTATION</h1>
+                <p>Begin your journey to a bespoke TORÍ ÀÁNÚ creation. Schedule a consultation with our master artisans to discuss your vision and bring your custom design to life.</p>
             </div>
         </section>
 
-        <div class="container payment-container">
+        <div class="container consultation-container">
             <!-- Left Column: Craftsmanship & Process -->
             <section class="craftsmanship-section">
-                <h2 class="craftsmanship-title">OUR CRAFTSMANSHIP COMMITMENT</h2>
+                <h2 class="craftsmanship-title">OUR BESPOKE PROCESS</h2>
                 
                 <div class="craftsmanship-content">
-                    <p>At TORÍ ÀÁNÚ, we take immense pride in our workmanship. Each garment is not merely sewn—it is artfully constructed with precision, passion, and an unwavering attention to detail that defines luxury fashion.</p>
+                    <p>At TORÍ ÀÁNÚ, we believe that true luxury is created through meticulous craftsmanship and personalized attention. Each garment is not merely sewn—it is artfully constructed with precision, passion, and an unwavering attention to detail that defines luxury fashion.</p>
                     
-                    <p>Our artisans dedicate countless hours to perfecting every stitch, ensuring that each piece meets our exacting standards of quality and elegance. We believe that true luxury lies in the details, and we commit to delivering nothing less than perfection.</p>
+                    <p>Our consultation process allows our master artisans to understand your vision, preferences, and requirements. We take pride in transforming your ideas into exquisite, one-of-a-kind creations that reflect your personal style and our commitment to excellence.</p>
                     
-                    <p><strong>Please note:</strong> All custom designs require up to one month to complete construction, as we refuse to compromise on quality for the sake of speed. Each piece undergoes multiple quality checks and fittings to ensure it meets both our standards and your expectations.</p>
+                    <p><strong>Production Timeline:</strong> All custom designs require up to one month to complete construction, as we refuse to compromise on quality for the sake of speed. For expedited service (1-2 weeks), please discuss availability and additional costs during your consultation.</p>
                 </div>
                 
-                <div class="craftsmanship-features">
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-ruler-combined"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Bespoke Measurements</h4>
-                            <p>Every garment is tailored to your exact measurements for a perfect fit.</p>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Book Consultation</h4>
+                            <p>Secure your $50 consultation appointment to discuss your custom design with our master artisans.</p>
                         </div>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-tshirt"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Premium Materials</h4>
-                            <p>We source only the finest fabrics and materials from around the world.</p>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Design Discussion</h4>
+                            <p>During your consultation, we'll explore your vision, preferences, fabric choices, and design details.</p>
                         </div>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Artisan Craftsmanship</h4>
-                            <p>Each piece is handcrafted by our master artisans with decades of experience.</p>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Review & Approval</h4>
+                            <p>After consultation, we'll send a detailed proposal for your review and approval via email.</p>
                         </div>
                     </div>
                     
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <i class="fas fa-clipboard-check"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Quality Assurance</h4>
-                            <p>Every garment undergoes rigorous quality checks before delivery.</p>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Craftsmanship Begins</h4>
+                            <p>Once approved, our artisans begin the meticulous process of creating your bespoke garment.</p>
                         </div>
                     </div>
                 </div>
             </section>
             
-            <!-- Right Column: Payment Form -->
-            <section class="payment-form-section">
-                <h2 class="payment-form-title">COMPLETE YOUR ORDER</h2>
+            <!-- Right Column: Appointment Booking -->
+            <section class="appointment-section">
+                <div class="appointment-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
                 
-                <!-- Timeframe Selection -->
-                <div class="timeframe-selection">
-                    <h3 class="timeframe-title">SELECT DELIVERY TIMEFRAME</h3>
-                    <div class="timeframe-options">
-                        <div class="timeframe-option" id="expeditedOption">
-                            <div class="timeframe-radio"></div>
-                            <div class="timeframe-details">
-                                <div class="timeframe-name">Expedited Service</div>
-                                <div class="timeframe-duration">Delivery in 1-2 weeks</div>
-                                <div class="timeframe-price">+ $250.00</div>
-                            </div>
-                        </div>
-                        
-                        <div class="timeframe-option selected" id="standardOption">
-                            <div class="timeframe-radio"></div>
-                            <div class="timeframe-details">
-                                <div class="timeframe-name">Standard Delivery</div>
-                                <div class="timeframe-duration">Delivery in 1 month (recommended)</div>
-                                <div class="timeframe-price">No extra cost</div>
-                            </div>
-                        </div>
+                <h2 class="appointment-title">CONSULTATION APPOINTMENT</h2>
+                
+                <div class="appointment-price">$50</div>
+                
+                <p class="appointment-desc">
+                    Secure your consultation with our master artisans. This one-time fee covers a comprehensive design discussion where we'll explore your vision and create a personalized plan for your bespoke creation.
+                </p>
+                
+                <div class="appointment-features">
+                    <div class="appointment-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>45-minute personalized consultation</span>
+                    </div>
+                    <div class="appointment-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Design discussion with master artisans</span>
+                    </div>
+                    <div class="appointment-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fabric and material selection guidance</span>
+                    </div>
+                    <div class="appointment-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Detailed proposal sent after consultation</span>
+                    </div>
+                    <div class="appointment-feature">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Fee credited toward your final order</span>
                     </div>
                 </div>
                 
-                <!-- Payment Method Selection -->
-                <div class="payment-methods">
-                    <h3 class="payment-methods-title">SELECT PAYMENT METHOD</h3>
-                    <div class="payment-options">
-                        <div class="payment-option" id="cardOption">
-                            <div class="payment-icon">
-                                <i class="far fa-credit-card"></i>
-                            </div>
-                            <div class="payment-name">Credit Card</div>
-                        </div>
-                        
-                        <div class="payment-option" id="paypalOption">
-                            <div class="payment-icon">
-                                <i class="fab fa-cc-paypal"></i>
-                            </div>
-                            <div class="payment-name">PayPal</div>
-                        </div>
-                        
-                        <div class="payment-option selected" id="bankOption">
-                            <div class="payment-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <div class="payment-name">Bank Transfer</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Order Summary -->
-                <div class="order-summary">
-                    <h3 class="order-summary-title">ORDER SUMMARY</h3>
-                    <div class="order-details">
-                        <div class="order-row">
-                            <span class="order-label">Custom Design Creation</span>
-                            <span class="order-value">$1,850.00</span>
-                        </div>
-                        
-                        <div class="order-row">
-                            <span class="order-label">Materials & Fabric</span>
-                            <span class="order-value">$650.00</span>
-                        </div>
-                        
-                        <div class="order-row">
-                            <span class="order-label">Artisan Labor</span>
-                            <span class="order-value">$1,200.00</span>
-                        </div>
-                        
-                        <div class="order-row" id="expeditedFeeRow">
-                            <span class="order-label">Expedited Service Fee</span>
-                            <span class="order-value">$0.00</span>
-                        </div>
-                        
-                        <div class="order-total">
-                            <span class="total-label">TOTAL</span>
-                            <span class="total-value" id="totalAmount">$3,700.00</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Payment Button -->
-                <button class="payment-btn" id="proceedToPayment">
-                    <i class="fas fa-lock"></i> PROCEED TO SECURE PAYMENT
+                <button class="payment-btn" id="bookAppointmentBtn">
+                    <i class="fas fa-calendar-check"></i> BOOK CONSULTATION - $50
                 </button>
                 
-                <!-- Disclaimer -->
-                <div class="payment-disclaimer">
-                    <p><strong>Important:</strong> By proceeding with payment, you acknowledge that custom designs are non-refundable once production has begun. Expedited service (1-2 weeks) incurs an additional $250 fee and is subject to design complexity approval. Standard delivery ensures optimal craftsmanship with a 1-month completion timeframe.</p>
+                <div class="appointment-disclaimer">
+                    <div class="disclaimer-title">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Important Information</span>
+                    </div>
+                    <div class="disclaimer-text">
+                        <p>After clicking the payment link, you'll be redirected to our secure payment gateway to complete your $50 consultation booking. Once payment is confirmed, you'll receive an email to schedule your preferred consultation time.</p>
+                        <p><strong>A follow-up email will be sent after your appointment has been successfully reviewed</strong>, containing your detailed design proposal, timeline, and pricing for the custom creation.</p>
+                        <p>The $50 consultation fee will be credited toward your final order when you proceed with your custom design.</p>
+                    </div>
                 </div>
             </section>
         </div>
@@ -765,67 +737,39 @@
     </footer>
 
     <script>
-        // Timeframe Selection
-        const expeditedOption = document.getElementById('expeditedOption');
-        const standardOption = document.getElementById('standardOption');
-        const expeditedFeeRow = document.getElementById('expeditedFeeRow');
-        const expeditedFeeValue = expeditedFeeRow.querySelector('.order-value');
-        const totalAmount = document.getElementById('totalAmount');
+        // Book Appointment Button
+        const bookAppointmentBtn = document.getElementById('bookAppointmentBtn');
         
-        let baseTotal = 3700.00;
-        let expeditedFee = 0.00;
-        
-        expeditedOption.addEventListener('click', function() {
-            expeditedOption.classList.add('selected');
-            standardOption.classList.remove('selected');
-            expeditedFee = 250.00;
-            expeditedFeeValue.textContent = `$${expeditedFee.toFixed(2)}`;
-            updateTotal();
-        });
-        
-        standardOption.addEventListener('click', function() {
-            standardOption.classList.add('selected');
-            expeditedOption.classList.remove('selected');
-            expeditedFee = 0.00;
-            expeditedFeeValue.textContent = `$${expeditedFee.toFixed(2)}`;
-            updateTotal();
-        });
-        
-        function updateTotal() {
-            const newTotal = baseTotal + expeditedFee;
-            totalAmount.textContent = `$${newTotal.toFixed(2)}`;
-        }
-        
-        // Payment Method Selection
-        const cardOption = document.getElementById('cardOption');
-        const paypalOption = document.getElementById('paypalOption');
-        const bankOption = document.getElementById('bankOption');
-        
-        const paymentOptions = [cardOption, paypalOption, bankOption];
-        
-        paymentOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                paymentOptions.forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-            });
-        });
-        
-        // Proceed to Payment Button
-        const proceedToPayment = document.getElementById('proceedToPayment');
-        
-        proceedToPayment.addEventListener('click', function() {
-            const selectedTimeframe = expeditedOption.classList.contains('selected') ? 'expedited' : 'standard';
-            const selectedPayment = document.querySelector('.payment-option.selected .payment-name').textContent;
-            
-            // Show confirmation
-            alert(`Proceeding to payment gateway...\n\nSelected Delivery: ${selectedTimeframe === 'expedited' ? 'Expedited (1-2 weeks)' : 'Standard (1 month)'}\nPayment Method: ${selectedPayment}\nTotal Amount: ${totalAmount.textContent}\n\nPayment gateway link will be attached here.`);
+        bookAppointmentBtn.addEventListener('click', function() {
+            // Show confirmation message
+            alert('You will now be redirected to our secure payment gateway to complete your $50 consultation booking.\n\nAfter payment, you will receive an email to schedule your preferred consultation time.\n\nA follow-up email with your detailed design proposal will be sent after your appointment has been reviewed.');
             
             // In a real implementation, this would redirect to the payment gateway
-            // window.location.href = "PAYMENT_GATEWAY_LINK_HERE";
+            // window.location.href = "YOUR_PAYMENT_GATEWAY_LINK_HERE";
+            
+            // For demonstration purposes, simulate a redirect
+            setTimeout(() => {
+                if(confirm('Redirecting to payment gateway... (Demo)\n\nWould you like to simulate a successful payment?')) {
+                    alert('Payment successful! You will receive an email shortly to schedule your consultation.');
+                }
+            }, 1000);
         });
         
-        // Initialize total display
-        updateTotal();
+        // Add some interactivity to the process steps
+        const processSteps = document.querySelectorAll('.process-step');
+        
+        processSteps.forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            step.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 3px 10px rgba(0,0,0,0.08)';
+            });
+        });
     </script>
 </body>
 </html>
