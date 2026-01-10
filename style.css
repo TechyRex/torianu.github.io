@@ -320,14 +320,33 @@ body {
     letter-spacing: 0.05em;
     color: #000;
     text-decoration: none;
-    border-bottom: 1px solid #000;
     padding-bottom: 0.25rem;
     transition: opacity 0.3s;
     margin-top: 0.1rem;
+    /* Remove border from entire container */
+    border-bottom: none;
 }
 
-.contact-link-btn:hover {
+/* Add border only to the text span */
+.contact-link-btn span {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.25rem;
+}
+
+/* Make the SVG/icon non-clickable */
+.contact-link-btn svg,
+.contact-link-btn strong:first-child {
+    pointer-events: none;
+}
+
+/* Only apply hover effect to the text */
+.contact-link-btn:hover span {
     opacity: 0.7;
+}
+
+/* Ensure the link text remains clickable */
+.contact-link-btn span strong {
+    pointer-events: auto;
 }
 
 /* Appointments Section */
@@ -887,4 +906,5 @@ body {
     }
 
 }
+
 
