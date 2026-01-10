@@ -264,7 +264,7 @@ body {
 }
 
 .subtitle {
-    font-size: 0.75rem;
+    font-size: 0.95rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: #333;
@@ -307,7 +307,7 @@ body {
 }
 
 .method-info p {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     line-height: 1.8;
     margin-bottom: 0.5rem;
 }
@@ -885,4 +885,5 @@ body {
     .footer {
         padding: 3rem 0 1.5rem;
     }
+
 }
